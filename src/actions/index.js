@@ -1,1 +1,1 @@
-import { setUser,SET_USER } from "./setUserInfo";
+export { setUser,SET_USER } from "./setUserInfo";
