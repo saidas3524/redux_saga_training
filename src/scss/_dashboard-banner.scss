@@ -1,0 +1,136 @@
+/*jumpotron starts here---------------------------->>>>>*/
+.jumbotron {
+    img {
+        width: 100%;
+    }
+
+    .banner-caption {
+        .btn:hover {
+            border: 1px solid $white;
+        }
+    }
+
+    &.dashboard-banner {
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+
+        img {
+            width: auto;
+            height: 180px;
+            margin-left: -100px;
+        }
+
+        .container {
+            position: relative;
+
+            .banner-caption {
+                padding: 13px 0px 20px;
+                color: $white;
+
+                h1 {
+                    font-family: $font-family-semilight;
+                    font-size: $h2-font-sm-size;
+                    line-height: 1.2em;
+                    margin-bottom: 9px;
+                }
+
+                p {
+                    font-size: $caption-font-sm-size;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+}
+/*jumpotron ends here---------------------------->>>>>*/
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(sm) {
+            /*jumpostron starts here---------------------------->>>>>*/
+            .jumbotron.dashboard-banner {
+                img {
+                    margin-left: 0px;
+                }
+            }
+            /*jumpostron ends here---------------------------->>>>>*/
+        }
+
+        @include media-breakpoint-up(md) {
+            /*jumpostron starts here---------------------------->>>>>*/
+            .jumbotron.dashboard-banner {
+                img {
+                    width: 100%;
+                    height: auto;
+                    margin-left: 0px;
+                }
+            }
+            /*jumpostron ends here---------------------------->>>>>*/
+        }
+
+        @include media-breakpoint-up(lg) {
+            /*jumpostron starts here---------------------------->>>>>*/
+            .jumbotron.dashboard-banner {
+                position: relative;
+                max-height: 320px;
+
+                img {
+                    width: auto;
+                    height: 100%;
+                }
+
+                .container {
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+
+
+                    .banner-caption {
+                        position: absolute;
+                        top: 50%;
+                        transform: translate(0,-50%);
+                        background: rgba(0,0,0, 0.85);
+                        padding: 15px 20px 25px;
+                        width: 65%;
+                        max-width: 426px;
+                        right: 15px;
+
+                        h1 {
+                            font-size: $h1-font-sm-size;
+                            line-height: 1.1em;
+                            margin-bottom: 11px;
+                        }
+
+                        p {
+                            font-size: $h5-font-sm-size;
+                            margin-bottom: 10px;
+                            line-height: 1.5em;
+                            max-height: 100px;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+            /*jumpostron ends here---------------------------->>>>>*/
+        }
+
+        @include media-breakpoint-up(xl) {
+            /*jumpostron starts here---------------------------->>>>>*/
+            .jumbotron.dashboard-banner {
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            /*jumpostron ends here---------------------------->>>>>*/
+        }
+    }
+}

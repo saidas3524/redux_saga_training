@@ -1,0 +1,58 @@
+.invalid-custom-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.react-datepicker-wrapper {
+  display: inherit !important;
+}
+.react-datepicker__input-container {
+  display: inherit !important;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $next: breakpoint-next($breakpoint, $grid-breakpoints);
+  $infix: breakpoint-infix($next, $grid-breakpoints);
+
+  &#{$infix} {
+
+      @include media-breakpoint-up(md) {
+          .even-level-card {
+              height: calc(100% - 30px);
+              margin-bottom: 30px;
+          }
+      }
+
+  }
+}
+
+.auto-suggest-box {
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  background: $white;
+  z-index: 1;
+  border: 1px solid $gray-400;
+  border-top: 0;
+
+  li {
+      padding: 5px 10px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      font-size: $font-size-base;
+      line-height: 1.1em;
+  }
+
+  li:not(:first-child) {
+      border-top: 1px solid $gray-400;
+  }
+}
+
+fieldset[disabled].formdisable {
+  pointer-events: none;
+  opacity: .65;
+}

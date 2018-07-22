@@ -1,0 +1,49 @@
+﻿.pricing-rule-response {
+    text-align: center;
+
+    h2 {
+        font-family: $font-family-semibold;
+    }
+
+    p {
+        font-size: $caption-font-sm-size;
+        color: $gray-600;
+    }
+}
+
+
+.wizard-content .panel-body .pricing-rule-response {
+    .next-step-button {
+        border: none;
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(lg) {
+            .pricing-id-cont {
+                margin-top: -10px;
+            }
+
+            .pricing-rule-response {
+                h2 {
+                    padding-top: 4px;
+                    margin-bottom: 3px;
+                }
+
+                p {
+                    font-size: $h6-font-lg-size;
+                    margin-bottom: 4px;
+
+                    &:last-of-type {
+                        margin-bottom: -5px;
+                    }
+                }
+            }
+        }
+    }
+}

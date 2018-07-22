@@ -4,35 +4,46 @@ import {
     compose
 } from 'redux';
 
-import { createLogger } from 'redux-logger';
+// import { createLogger } from 'redux-logger';
 import { Iterable } from 'immutable'
 import createSagaMiddleware from 'redux-saga';
 
-import { getQuery } from './utility'
+import { getQuery } from '@ec-oem/ec.oem.oa3.mux.core';
 import { initSagas } from './initSagas';
 import { reducer } from './combineReducers';
 import { defaultState } from './defaultState';
+import { insightsMonitor } from "./AppInsights";
+import { app_initialize } from './Root';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { PricingMiddlewares } from "./Pricing";
 
-const stateTransformer = (state) => {
-    if (Iterable.isIterable(state)) return state.toJS();
-    else return state;
-};
 
-const logger = createLogger({
-    stateTransformer,
-});
 
-export const getStore = ()=>{
+
+export const getStore = () => {
     const sagaMiddleware = createSagaMiddleware();
-    const middleWares = [sagaMiddleware];
-    if (getQuery()['logger']) { middleWares.push(logger)}
+    const params = {
+        globals: {
+            env: 'dev'
+        },
+        exclude: ['trackAction']
+    };
+
+
+    const middleWares = [insightsMonitor(params), app_initialize,...PricingMiddlewares, sagaMiddleware];
+    //if (getQuery['logger']) { middleWares.push(logger)}
     const composables = [applyMiddleware(...middleWares)
     ];
-    const enhancer = compose(
-        ... composables
-    );
 
-    var red = reducer;
+    if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'production') {
+        var enhancer = compose(
+            ...composables
+        );
+    }
+    else {
+        var enhancer = composeWithDevTools(...composables);
+
+    }
     const store = createStore(
         reducer,
         defaultState,

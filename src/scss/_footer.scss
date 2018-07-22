@@ -1,0 +1,211 @@
+/*Footer starts here---------------------------->>>>>*/
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: $gray-700;
+    text-align: center;
+    padding: 18px 0 0;
+    height: 122px;
+
+    .language {
+        display: inline-block;
+        margin: 0px auto;
+        position: relative;
+
+        .btn {
+            background: none;
+            border: none;
+            border-radius: 0;
+            padding: 0px 17px 0px 37px;
+            color: $white;
+            position: relative;
+
+            &:before {
+                font-size: 30px;
+                line-height: 100%;
+                position: absolute;
+                left: 0;
+            }
+
+            span {
+                font-size: $footer-font-sm-size;
+                line-height: 30px;
+                float: left;
+            }
+
+            &:after {
+                @include ms-font-iconNew ($ms-chevron-down);
+                width: 10px;
+                height: 10px;
+                font-size: 10px;
+                line-height: 100%;
+                border: none;
+                border-radius: 0;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translate(0, -50%);
+                @extend .easing;
+                margin: 0;
+            }
+        }
+
+        &.show {
+            .dropdown-toggle {
+                &:after {
+                    transform: translateY(-50%) rotate(180deg);
+                }
+            }
+        }
+
+        .toggle-language-menu {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-bottom: 5px;
+            transform: translate(-50%, 0);
+
+            .form-group {
+                padding: 0px;
+                margin: 0;
+
+                select {
+                    padding: 0px 10px;
+                }
+            }
+        }
+
+        .form-group {
+            margin: 0;
+            max-width: 125px;
+
+            .language-icon {
+                color: $white;
+                font-size: 30px;
+                height: 30px;
+
+                &:before {
+                    font-size: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    float: left;
+                }
+            }
+
+            .form-control {
+                background: none;
+                border: none;
+                color: $white;
+                line-height: 30px;
+                height: 30px;
+                min-width: 80px;
+                font-size: $footer-font-sm-size;
+                padding: 0 0 0 10px;
+
+                &:focus {
+                    outline:auto;
+                }
+
+                option {
+                    color: $gray-500;
+                }
+            }
+        }
+    }
+
+    .nav {
+        padding: 3px 0px 0px 0px;
+
+        .nav-item {
+            .nav-link {
+                &:link, &:active, &:hover, &:visited {
+                    padding: 0px 5px;
+                    font-size: $footer-font-sm-size;
+                    color: $white;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            &:first-child {
+                .nav-link {
+                    padding-left: 0px;
+                }
+            }
+
+            &:last-child {
+                .nav-link {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    .copy-right {
+        p {
+            padding: 9px 0px 0px 0px;
+            margin: 0;
+            font-size: $footer-font-sm-size;
+            color: $white;
+        }
+    }
+}
+/*Footer ends here---------------------------->>>>>*/
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(lg) {
+            .footer {
+                height: 70px;
+                padding-top: 20px;
+
+                .container {
+                    .language {
+                        margin: 0;
+
+                        .btn span {
+                            font-size: $footer-font-lg-size;
+                        }
+                    }
+
+                    .nav {
+                        padding: 0;
+
+                        .nav-item {
+                            font-size: $footer-font-lg-size;
+                            line-height: 30px;
+
+                            .nav-link {
+                                padding: 0;
+                                margin-left: 40px;
+                            }
+                        }
+                    }
+
+                    .copy-right p {
+                        padding: 0;
+                        margin: 0px 0px 0px 40px;
+                        font-size: $footer-font-lg-size;
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(lg) {
+            /*footer starts here---------------------------->>>>>*/
+            .footer {
+                .language {
+                    display: inline-block !important;
+                }
+            }
+            /*Footer ends here---------------------------->>>>>*/
+        }
+    }
+}

@@ -1,0 +1,68 @@
+﻿.custom-radio.switch-radio {
+    label {
+        border: 1px solid $gray-400;
+        font-size: $caption-font-sm-size;
+        @include button-size($custom-checkbox-padding, $custom-checkbox-padding-lg-x, $font-size-base, ($input-height - $line-height-minus), $btn-border-radius);
+        height: $input-height;
+        float: left;
+        position: relative;
+        color: $gray-600;
+        cursor: pointer;
+        margin-bottom: 0;
+        background: $white;
+
+
+        &:before, &:after {
+            display: none;
+            height: initial;
+            border-radius: 0;
+        }
+    }
+
+    input:checked ~ label {
+        color: $blue;
+
+        &:before {
+            display: block;
+            content: "";
+            position: absolute;
+            width: 4px;
+            top: -1px;
+            bottom: -1px;
+            left: -1px;
+            background: $blue;
+            height: initial;
+            border-radius: initial;
+        }
+    }
+
+    input:disabled + label {
+        color: $gray-400;
+
+        &:before {
+            background: $gray-400;
+        }
+    }
+
+    .custom-control-input:focus + label {
+        outline: 1px solid $blue;
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-down(xs) {
+            .custom-radio {
+                display: flex;
+            }
+        }
+    }
+}
+
+input[type="radio"][readonly], input[type="radio"][readonly] ~ label {
+    pointer-events: none;
+}

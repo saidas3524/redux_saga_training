@@ -1,0 +1,196 @@
+﻿.adjustment-rule-wrapper {
+    text-align: left;
+
+    h5 {
+        font-family: $font-family-semibold;
+        color: $darkblue;
+    }
+
+    h6 {
+        color: $gray-500;
+        font-size: $caption-font-sm-size;
+        margin-bottom: 5px;
+    }
+
+    .product {
+        font-size: $footer-font-sm-size;
+        margin-bottom: 12px;
+    }
+
+    .adjustment-rule {
+        margin: 0px -15px -15px;
+
+        .adjustment-rule-title {
+            border-bottom: 1px solid $gray-400;
+
+            h6 {
+                font-size: $footer-font-sm-size;
+                margin-bottom: 2px;
+            }
+        }
+
+        .rule-details {
+            margin-top: 5px;
+
+            h5 {
+                font-family: $font-family-sans-serif;
+                font-size: $adjustment-sm-size;
+                margin-bottom: 0;
+                color: $gray-500;
+            }
+
+            a {
+                h5 {
+                    color: $blue;
+                }
+            }
+        }
+    }
+
+    table {
+        width: 100%;
+        text-align: left;
+
+        tr {
+            td {
+                padding-top: 0;
+                padding-bottom: 0;
+
+                &:first-child {
+                    padding-left: 15px;
+                }
+            }
+
+            td:last-child {
+                padding-right: 15px;
+                text-align: right;
+            }
+        }
+
+        tbody {
+            tr {
+                h5 {
+                    padding: 3px 0px;
+                    margin: 0;
+                }
+
+                &:first-child {
+                    td {
+                        padding-top: 6px;
+                    }
+                }
+
+                &:last-child {
+                    td {
+                        padding-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.view-pricing {
+        border: 1px solid $gray-400;
+
+        h5 {
+            margin-bottom: 10px;
+        }
+
+        .product {
+            margin: 6px 0px 6px;
+        }
+
+        .adjustment-rule {
+            background: $white;
+            border-top: 1px solid $gray-400;
+
+            .adjustment-rule-title {
+                /*padding: 0px 15px;*/
+                h6 {
+                    line-height: 25px;
+                    margin: 0;
+                }
+            }
+
+            .rule-details {
+                /*padding: 0px 15px;*/
+            }
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(sm) {
+            .adjustment-rule-wrapper .adjustment-rule .rule-details h5 {
+                font-size: $footer-font-sm-size;
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            .adjustment-rule-wrapper {
+                .adjustment-rule {
+                    margin: 0 -20px -20px;
+                    
+
+                    table {
+                        tr {
+                            td:first-child {
+                                padding-left: 20px;
+                            }
+
+                            td:last-child {
+                                padding-right: 20px;
+                            }
+                        }
+
+                        tbody {
+                            tr {
+                                &:last-child {
+                                    td {
+                                        padding-bottom: 14px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-up(lg) {
+                .adjustment-rule-wrapper {
+                    padding: 12px 20px 17px;
+                    .adjustment-rule {
+                        margin: 0 -20px -20px;
+
+                        .rule-details {
+                            /*h5 {
+                                font-size: $caption-font-lg-size;
+                            }*/
+                        }
+                    }
+                    h5 {
+                        margin-bottom: 8px;
+                        margin-top: -1px;
+                    }
+
+                    h6 {
+                        font-size: $h6-font-lg-size;
+                        margin-bottom: 4px;
+                    }
+
+                    &.view-pricing {
+                        .product {
+                            font-size: $caption-font-lg-size;
+                            margin-bottom: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

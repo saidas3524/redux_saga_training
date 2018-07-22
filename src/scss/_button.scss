@@ -1,0 +1,301 @@
+﻿button {
+    cursor: pointer;
+}
+
+.btn.btn-icon, .btn.btn-primary, .btn.btn-secondary {
+    font-size: $button-font-sm-size;
+    line-height: $input-height;
+    height: $input-height;
+
+    &:before {
+        float: right;
+        font-size: 16px;
+        @extend .easing;
+        position: relative;
+        right: 0;
+        line-height: initial;
+        height: initial;
+        margin: 0px 0px 0px 7px;
+    }
+
+    span {
+        @extend .easing;
+        position: relative;
+        left: 0;
+    }
+
+    &:hover, &:focus {
+        &:before {
+            right: -5px;
+        }
+
+        span {
+            left: -5px;
+        }
+    }
+
+    &.left-icon {
+        &:before {
+            left: 0;
+            right: initial;
+            margin: 0px 7px 0px 0px;
+        }
+
+        span {
+            right: 0;
+            left: initial;
+        }
+
+        &:hover, &:focus {
+            &:before {
+                left: -5px;
+                right: initial;
+            }
+
+            span {
+                right: -5px;
+                left: initial;
+            }
+        }
+    }
+}
+
+.btn.btn-icon {
+    padding: 0;
+    margin: 0px;
+    background: $transparent;
+    color: $blue;
+    border: none;
+    cursor: pointer;
+
+    &:before {
+        border-radius: 100%;
+        width: 20px;
+        height: 20px;
+        font-size: $footer-font-sm-size;
+        line-height: 20px;
+        color: $blue;
+        margin: 0;
+        padding: 0;
+        float: left;
+        border: 1px solid $blue;
+        position: initial;
+    }
+
+    span {
+        position: initial;
+    }
+
+    &.active, &:hover, &:focus {
+        &:before {
+            background: $blue;
+            color: $white;
+        }
+
+        span {
+            text-decoration: underline;
+        }
+    }
+}
+
+.btn.btn-icon + .btn.btn-icon, .action-btn-wraper + .action-btn-wraper {
+    margin-left: 10px;
+}
+
+.btn-secondary {
+    border: 1px solid $white;
+}
+
+.btn:disabled {
+    border-color: $gray-400;
+    background: $gray-400;
+    cursor: not-allowed;
+    &:before {
+        border-color: $gray-400;
+        position: initial;
+    }
+
+    span {
+        position: initial;
+    }
+
+    &.btn-icon {
+        color: $gray-400;
+        background: $transparent;
+
+        &:before {
+            color: $gray-400;
+            border-color: $gray-400;
+        }
+    }
+
+    &:hover {
+
+        &.btn-icon {
+            color: $gray-400;
+            background: $transparent;
+
+            span {
+                text-decoration: none;
+            }
+
+            &:before {
+                color: $gray-400;
+                border-color: $gray-400;
+                background: none;
+            }
+        }
+    }
+}
+
+
+label.btn.disabled {
+    border-color: $gray-400;
+    background: $gray-400;
+
+    &:before {
+        border-color: $gray-400;
+        position: initial;
+    }
+
+    span {
+        position: initial;
+    }
+
+    &.btn-icon {
+        color: $gray-400;
+        background: $transparent;
+
+        &:before {
+            color: $gray-400;
+            border-color: $gray-400;
+        }
+    }
+
+    &:hover {
+
+        &.btn-icon {
+            color: $gray-400;
+            background: $transparent;
+
+            span {
+                text-decoration: none;
+            }
+
+            &:before {
+                color: $gray-400;
+                border-color: $gray-400;
+                background: none;
+            }
+        }
+    }
+}
+
+.btn.close-btn {
+    height: 20px;
+    line-height: 20px;
+    font-size: $footer-font-sm-size;
+    width: 20px;
+    color: $gray-500;
+    background: none;
+    padding: 0;
+    margin: 0;
+
+    &:hover, &:focus {
+        &:before {
+            font-weight: 600;
+            font-size: $caption-font-sm-size;
+        }
+    }
+}
+
+.btn.btn-primary:focus {
+    background: $darkblue;
+}
+
+.custom-file-input {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: -100%;
+    right: 0;
+    z-index: -999999;
+
+    &:focus ~ label {
+        &:before {
+            background: $blue;
+            color: $white;
+        }
+
+        span {
+            text-decoration: underline;
+        }
+    }
+}
+
+.disabled-tooltip {
+    display: block;
+
+    button[disabled] {
+        pointer-events: none;
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(lg) {
+            .btn.btn-icon {
+                padding: 0;
+                line-height: 30px;
+
+                &:before {
+                    width: 30px;
+                    height: 30px;
+                    font-size: $font-size-base;
+                    line-height: 30px;
+                }
+
+                span {
+                    padding-right: 10px;
+                    font-size: $h5-font-lg-size;
+                }
+                &.btn-sm{
+                    &:before {
+                        width: 20px;
+                        height: 20px;
+                        font-size: $small-font-sm-size;
+                        line-height: 20px;
+                    }
+                    span {
+                        padding-right: 5px;
+                        font-size: $button-font-lg-size;
+                        
+                    }
+                }
+
+                &:hover {
+                    span {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .btn.btn-icon + .btn.btn-icon, .action-btn-wraper + .action-btn-wraper {
+                margin-left: 20px;
+            }
+        }
+
+        @include media-breakpoint-down(xs) {
+            .btn.btn-icon, .btn.btn-primary, .btn.btn-secondary {
+
+                &:before {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}

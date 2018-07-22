@@ -1,0 +1,180 @@
+﻿h1, .h1 {
+    font-size: $h1-font-sm-size;
+}
+
+h2, .h2 {
+    font-size: $h2-font-sm-size;
+}
+
+h3, .h3 {
+    font-size: $h3-font-sm-size;
+}
+
+h4, .h4 {
+    font-size: $h4-font-sm-size;
+}
+
+h5, .h5 {
+    font-size: $h5-font-sm-size;
+}
+
+h6, .h6 {
+    font-size: $h6-font-sm-size;
+}
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow:before, .bs-tooltip-bottom .arrow:before {
+    border-bottom-color: $alert-primary-bg;
+}
+
+.bs-tooltip-auto[x-placement^=top] .arrow:before, .bs-tooltip-bottom .arrow:before {
+    border-bottom-color: $alert-primary-bg;
+}
+
+.tooltip-inner {
+    background: $alert-primary-bg;
+    border-radius: 0;
+    padding: 12px 15px;
+    color: $gray-500;
+    text-align: left;
+    line-height: 1.3em;
+    min-width: 250px;
+    box-shadow: 0px 2px 3px rgba(0, 0,0, 0.3);
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(md) {
+            .card-body {
+                padding: 20px;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            h1, .h1 {
+                font-size: $h1-font-lg-size;
+            }
+
+            h2, .h2 {
+                font-size: $h2-font-lg-size;
+            }
+
+            h3, .h3 {
+                font-size: $h3-font-lg-size;
+            }
+
+            h4, .h4 {
+                font-size: $h4-font-lg-size;
+            }
+
+            h5, .h5 {
+                font-size: $h5-font-lg-size;
+            }
+
+            h6, .h6 {
+                font-size: $h6-font-lg-size;
+            }
+        }
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 122px;
+}
+
+/*a:focus, button:focus, .btn:focus, [role*=button]:focus  {
+    outline: 1px dashed $gray-600;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    outline-offset: 5px;
+}
+
+.btn:focus {
+    outline-color: $blue !important;
+}*/
+
+a:active, button:active {
+    outline: none;
+}
+
+input.form-control, select {
+    height: $input-height;
+    line-height: $input-height;
+}
+
+.form-control {
+    padding: $custom-checkbox-padding $custom-checkbox-padding-sm-x;
+}
+
+
+.page-title-wrapper {
+    .page-title {
+        padding: 8px 0px 0px 0px;
+    }
+
+    p {
+        font-family: $font-family-semibold;
+        font-size: $caption-font-sm-size;
+        color: $darkblue;
+    }
+}
+
+label {
+    font-size: $label-font-size;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+
+
+        @include media-breakpoint-up(lg) {
+            body {
+                margin-bottom: 70px;
+            }
+
+            .page-title-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                padding-top: 24px;
+
+                .page-title {
+                    padding: 0px;
+
+                    p {
+                        font-size: $font-size-base;
+                    }
+                }
+
+                p {
+                    font-size: $font-size-base;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(xs) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .fullWidth {
+                width: 100% !important;
+            }
+        }
+    }
+}

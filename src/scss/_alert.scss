@@ -1,0 +1,59 @@
+﻿.alert {
+    margin: 15px 0px 20px;
+    padding: 16px 20px;
+    position: relative;
+    border: none;
+
+    p {
+        color: $gray-500;
+        font-size: $caption-font-sm-size;
+    }
+
+    .close-btn {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        transform: none;
+        padding: 0;
+        background: none;
+
+        &:before {
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+            float: left;
+            width: 20px;
+            color: $gray-500;
+        }
+    }
+}
+
+.alert.alert-primary {
+    background: $alert-primary-bg;
+}
+
+.alert.alert-warning {
+    background: $alert-warning-bg;
+
+    p {
+        color: $gray-800;
+    }
+}
+
+.alert.alert-danger {
+    background: $alert-danger-bg;
+
+    p {
+        color: $alert-red;
+    }
+}
+
+.alert.alert-success {
+    background: $alert-success-bg;
+
+    p {
+        color: $green;
+    }
+}

@@ -1,0 +1,917 @@
+﻿html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 122px;
+}
+
+a:focus, button:focus, .btn:focus {
+    outline: 1px dashed $gray-600;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.btn:focus {
+    outline-color: $white;
+}
+
+a:active, button:active {
+    outline: none;
+}
+
+.btn.btn-secondary {
+    border: 1px solid $white;
+
+    &:before {
+        float: right;
+        margin-left: 7px;
+        @extend .easing;
+        position: relative;
+        right: 0;
+    }
+
+    span {
+        @extend .easing;
+        position: relative;
+        left: 0;
+    }
+
+    &:hover {
+        &:before {
+            right: -5px;
+        }
+
+        span {
+            left: -5px;
+        }
+    }
+}
+
+/*Header starts here---------------------------->>>>>*/
+.header-wrapper {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+}
+
+
+.navbar-brand {
+    color: $dark;
+
+    @include hover-focus {
+        color: $dark;
+    }
+}
+
+.navbar-brand {
+    &.microsoft {
+        height: 34px;
+        width: 34px;
+        overflow: hidden;
+        padding: 0;
+        margin: 0px 0px 0px -5px;
+        border: 5px solid $white;
+        float: left;
+
+        img {
+            height: 24px;
+            width: auto;
+            float: left;
+        }
+    }
+
+    &.oem-doc {
+        &:link, &:active, &:hover, &:visited {
+            font-size: $font-size-base;
+        }
+    }
+}
+
+.user-login-details {
+    .dropdown-toggle {
+        padding: 0;
+        background: none;
+        padding: 4px 15px 4px 4px;
+        margin-right: -4px;
+        position: relative;
+
+        &:before {
+            margin-left: 0;
+            font-size: 10px;
+            margin-top: 1px;
+            position: absolute;
+            top: 50%;
+            right: 3px;
+            transform: translate(0px, -50%);
+            color: $gray-500;
+            @extend .easing;
+        }
+
+        &:after {
+            display: none;
+        }
+
+        .user-name-area {
+            float: left;
+            display: none;
+            padding-right: 5px;
+            font-size: $font-size-base;
+            color: $gray-500;
+            margin: 0;
+
+            span {
+                padding-left: 4px;
+            }
+        }
+
+        .user-avtar {
+            float: left;
+            width: 15px;
+            height: 15px;
+            margin: 1px 0px 0px 0px;
+            overflow: hidden;
+            position: relative;
+            background: url('../images/user-image.png') no-repeat;
+            background-size: cover;
+
+            img {
+                width: 100%;
+                height: 100%;
+                float: left;
+                position: relative;
+                background: #fff;
+            }
+        }
+    }
+
+    .dropdown-menu {
+        border-radius: 0;
+        margin-right: 14px;
+        border: 1px solid $gray-400;
+        box-shadow: 1px 1px 0px #B7B1B1;
+        padding: 0;
+
+        .dropdown-item {
+            line-height: 45px;
+            padding: 0px 15px;
+            margin: 0;
+            color: $gray-600;
+        }
+
+        .dropdown-item:not(:last-child) {
+            border-bottom: 1px solid $gray-400;
+        }
+
+        .profile-icon, .logout-icon {
+            @extend .ms-font-icon;
+            width: 16px;
+            height: 16px;
+            font-size: 16px;
+            color: $gray-800;
+            float: left;
+            line-height: 100%;
+            padding-top: 14px;
+            margin-right: 7px;
+        }
+
+        .logout-icon {
+            padding-top: 15px;
+        }
+    }
+
+    &.show {
+        .dropdown-toggle {
+            &:before {
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+    }
+}
+/*Header ends here---------------------------->>>>>*/
+/*Navigation starts here---------------------------->>>>>*/
+.main-navigation {
+    height: 50px;
+    background: $dark;
+
+    .selected-nav {
+        font-size: $h5-font-sm-size;
+        color: #fff;
+        line-height: 50px;
+    }
+
+    .navbar-toggler {
+        padding: 0;
+        margin: 0px -5px 0px 0px;
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        border: none;
+        border-radius: 0;
+        position: relative;
+        z-index: 2;
+
+        &:focus {
+            outline-color: $white;
+        }
+
+        .navbar-toggler-icon {
+            width: 100%;
+            height: 100%;
+            float: left;
+            margin-right: -5px;
+            background: none;
+
+            &:before {
+                @include ms-font-iconNew ($ms-global-nav);
+                font-size: 20px;
+                color: #fff;
+                float: left;
+                @extend .easing;
+            }
+        }
+
+        &[aria-expanded="true"] .navbar-toggler-icon:before {
+            @include ms-font-iconNew ($ms-close);
+            transform: rotate(180deg);
+        }
+
+        .navbar-collapse {
+            position: relative;
+            margin: 0px -20px;
+            z-index: 1;
+
+            .navbar-nav {
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                top: 0px;
+                left: 0;
+                width: 100%;
+                background: $gray-700;
+
+                .nav-item {
+                    .dropdown-toggle::after {
+                        position: absolute;
+                        top: 50%;
+                        right: 20px;
+                        transform: translate(0, -50%);
+                        @include ms-font-iconNew ($ms-chevron-down);
+                        width: 10px;
+                        height: 10px;
+                        font-size: 10px;
+                        line-height: 10px;
+                        border: none;
+                        color: $white;
+                        @extend .easing;
+                    }
+
+                    a:focus {
+                        outline-color: $white;
+                    }
+
+                    &.show {
+                        & > .dropdown-toggle::after {
+                            transform: translateY(-50%) rotate(180deg);
+                            margin-right: 2px;
+                        }
+                    }
+
+                    & > a {
+                        &:link, &:active, &:hover, &:visited {
+                            padding: 0px 20px;
+                        }
+
+                        &:active, &:hover {
+                            background: $gray-500;
+                        }
+
+                        &:not(.dropdown-toggle):hover {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    &.show > a {
+                        background: $gray-500;
+                    }
+
+                    a {
+                        font-size: $h5-font-sm-size;
+                        color: white;
+                        line-height: 50px;
+                        position: relative;
+                    }
+
+                    .dropdown-menu {
+                        margin: 0;
+                        padding: 0;
+                        background: $gray-500;
+                        border-radius: 0px;
+                        border: none;
+
+                        & > li .dropdown-item {
+                            padding: 0px 30px;
+                            background: none;
+
+                            &:not(.dropdown-toggle):hover {
+                                text-decoration: underline;
+                            }
+                        }
+
+                        .dropdown-submenu.show {
+                            .dropdown-toggle::after {
+                                transform: translateY(-50%) rotate(180deg);
+                                margin-right: 2px;
+                            }
+                        }
+
+                        .dropdown-menu {
+                            & > li .dropdown-item {
+                                padding: 0px 40px;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-collapse {
+        position: relative;
+        margin: 0px -20px;
+        z-index: 1;
+
+        .navbar-nav {
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 0px;
+            left: 0;
+            width: 100%;
+            background: $gray-700;
+
+
+
+            .nav-item {
+                .dropdown-toggle::after {
+                    position: absolute;
+                    top: 50%;
+                    right: 20px;
+                    transform: translate(0, -50%);
+                    @include ms-font-iconNew ($ms-chevron-down);
+                    width: 10px;
+                    height: 10px;
+                    font-size: 10px;
+                    line-height: 10px;
+                    border: none;
+                    color: $white;
+                    @extend .easing;
+                }
+
+                a:focus {
+                    outline-color: $white;
+                }
+
+                &.show {
+                    & > .dropdown-toggle::after {
+                        transform: translateY(-50%) rotate(180deg);
+                        margin-right: 2px;
+                    }
+                }
+
+                & > a {
+                    &:link, &:active, &:hover, &:visited {
+                        padding: 0px 20px;
+                    }
+
+                    &:active, &:hover {
+                        background: $gray-500;
+                    }
+
+                    &:not(.dropdown-toggle):hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                &.show > a {
+                    background: $gray-500;
+                }
+
+                a {
+                    font-size: $h5-font-sm-size;
+                    color: $white;
+                    line-height: 50px;
+                    position: relative;
+                }
+
+                .dropdown-menu {
+                    margin: 0;
+                    padding: 0;
+                    background: $gray-500;
+                    border-radius: 0px;
+                    border: none;
+
+                    & > li .dropdown-item {
+                        padding: 0px 30px;
+                        background: none;
+
+                        &:not(.dropdown-toggle):hover {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    .dropdown-submenu.show {
+                        .dropdown-toggle::after {
+                            transform: translateY(-50%) rotate(180deg);
+                            margin-right: 2px;
+                        }
+                    }
+
+                    .dropdown-menu {
+                        & > li .dropdown-item {
+                            padding: 0px 40px;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*Navigarion ends here---------------------------->>>>>*/
+/*jumpotron starts here---------------------------->>>>>*/
+.jumbotron {
+    img {
+        width: 100%;
+    }
+
+    .banner-caption {
+    }
+
+    &.dashboard-banner {
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+
+        img {
+            width: auto;
+            height: 180px;
+            margin-left: -100px;
+        }
+
+        .container {
+            position: relative;
+
+            .banner-caption {
+                padding: 13px 0px 20px;
+                color: $white;
+
+                h1 {
+                    font-family: $font-family-semilight;
+                    font-size: $h2-font-sm-size;
+                    line-height: 1.2em;
+                    margin-bottom: 9px;
+                }
+
+                p {
+                    font-size: $caption-font-sm-size;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+}
+
+/*jumpotron ends here---------------------------->>>>>*/
+/*Footer starts here---------------------------->>>>>*/
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: $gray-700;
+    text-align: center;
+    padding: 18px 0 0;
+
+    .dropdown.language {
+        display: inline-block;
+        margin: 0px auto;
+
+        .btn {
+            background: none;
+            border: none;
+            border-radius: 0;
+            padding: 0px 17px 0px 37px;
+
+            &:before {
+                font-size: 30px;
+                line-height: 100%;
+                position: absolute;
+                left: 0;
+            }
+
+            span {
+                font-size: $caption-font-sm-size;
+                line-height: 30px;
+                float: left;
+            }
+
+            &:after {
+                @include ms-font-iconNew ($ms-chevron-down);
+                width: 10px;
+                height: 10px;
+                font-size: 10px;
+                line-height: 100%;
+                border: none;
+                border-radius: 0;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translate(0, -50%);
+                @extend .easing;
+                margin: 0;
+            }
+        }
+
+        &.show {
+            .dropdown-toggle {
+                &:after {
+                    transform: translateY(-50%) rotate(180deg);
+                }
+            }
+        }
+    }
+
+    .nav {
+        padding: 3px 0px 0px 0px;
+
+        .nav-item {
+            .nav-link {
+                &:link, &:active, &:hover, &:visited {
+                    padding: 0px 5px;
+                    font-size: $caption-font-sm-size;
+                    color: $white;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            &:first-child {
+                .nav-link {
+                    padding-left: 0px;
+                }
+            }
+
+            &:last-child {
+                .nav-link {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    .copy-right {
+        p {
+            padding: 9px 0px 27px 0px;
+            margin: 0;
+            font-size: $caption-font-sm-size;
+            color: $white;
+        }
+    }
+}
+/*Footer ends here---------------------------->>>>>*/
+
+
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(sm) {
+            /*jumpostron starts here---------------------------->>>>>*/
+            .jumbotron.dashboard-banner {
+                img {
+                    margin-left: 0px;
+                }
+            }
+            /*jumpostron ends here---------------------------->>>>>*/
+        }
+
+        @include media-breakpoint-up(md) {
+            /*jumpostron starts here---------------------------->>>>>*/
+            .jumbotron.dashboard-banner {
+                img {
+                    width: 100%;
+                    height: auto;
+                    margin-left: 0px;
+                }
+            }
+            /*jumpostron ends here---------------------------->>>>>*/
+        }
+
+        @include media-breakpoint-up(lg) {
+            body {
+                margin-bottom: 70px;
+            }
+            /*Header starts here---------------------------->>>>>*/
+            header {
+                .header-wrapper {
+                    height: 50px;
+
+                    .navbar-brand {
+                        &.microsoft {
+                            height: 30px;
+                            width: initial;
+
+                            img {
+                                height: 20px;
+                                width: auto;
+                                float: left;
+                            }
+                        }
+
+                        &.oem-doc {
+                            &:link, &:active, &:hover, &:visited {
+                                font-size: $h4-font-lg-size;
+                                margin-left: 56px !important;
+                            }
+                        }
+                    }
+
+                    .user-login-details {
+                        .dropdown-toggle {
+                            padding-right: 21px;
+
+                            &:before {
+                                font-size: 10px;
+                                margin-top: 0;
+                            }
+
+                            .user-name-area {
+                                line-height: 30px;
+                                padding-right: 8px;
+                            }
+
+                            .user-avtar {
+                                width: 20px;
+                                height: 20px;
+                                margin: 2px 0 0;
+                            }
+                        }
+
+                        .dropdown-menu {
+                            min-width: 130px;
+                        }
+                    }
+                }
+            }
+            /*Header ends here---------------------------->>>>>*/
+            /*jumpostron starts here---------------------------->>>>>*/
+            .jumbotron.dashboard-banner {
+                position: relative;
+                max-height: 320px;
+
+                img {
+                    width: auto;
+                    height: 100%;
+                }
+
+                .container {
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+
+
+                    .banner-caption {
+                        position: absolute;
+                        top: 50%;
+                        transform: translate(0,-50%);
+                        background: rgba(0,0,0, 0.85);
+                        padding: 15px 20px 25px;
+                        width: 65%;
+                        max-width: 426px;
+                        right: 15px;
+
+                        h1 {
+                            font-size: $h1-font-sm-size;
+                            line-height: 1.1em;
+                            margin-bottom: 11px;
+                        }
+
+                        p {
+                            font-size: $h5-font-sm-size;
+                            margin-bottom: 10px;
+                            line-height: 1.5em;
+                            max-height: 100px;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+            /*jumpostron ends here---------------------------->>>>>*/
+            /*Footer starts here------------------------->>>>>*/
+            .footer {
+                height: 70px;
+                padding-top: 20px;
+
+                .container {
+                    .dropdown.language {
+                        margin: 0;
+                    }
+
+                    .nav {
+                        padding: 0;
+
+                        .nav-item {
+                            line-height: 30px;
+
+                            .nav-link {
+                                padding: 0;
+                                margin-left: 40px;
+                            }
+                        }
+                    }
+
+                    .copy-right p {
+                        padding: 0;
+                        margin: 0px 0px 0px 40px;
+                        line-height: 30px;
+                    }
+                }
+            }
+            /*<<<<<----------Footer starts here*/
+        }
+
+        @include media-breakpoint-up(xl) {
+            /*Navigation starts here---------------------------->>>>>*/
+            .main-navigation {
+                height: 60px;
+
+                .navbar {
+
+                    .navbar-collapse {
+                        margin: 0px -12px;
+
+                        .navbar-nav {
+                            position: relative;
+                            background: none;
+
+                            .nav-item {
+                                .dropdown-toggle::after {
+                                    right: 12px;
+                                    margin: 2px 0px 0px 0px;
+                                    font-size: 10px;
+                                }
+
+                                a {
+                                    line-height: 60px;
+
+                                    &:focus {
+                                        outline-color: $white;
+                                    }
+                                }
+
+                                & > a {
+                                    &:link, &:active, &:hover, &:visited {
+                                        padding: 0px 12px;
+                                    }
+
+                                    &:active, &:hover {
+                                        background: $gray-700;
+                                    }
+                                }
+
+                                &.show > a {
+                                    background: $gray-700;
+                                }
+
+                                &.dropdown > a {
+                                    padding: 0 34px 0 12px;
+                                }
+
+                                .dropdown-menu {
+                                    position: absolute;
+                                    background: $gray-700;
+                                    min-width: initial;
+
+
+                                    .dropdown-submenu {
+                                        position: relative;
+
+
+
+                                        &.show {
+                                            .dropdown-item {
+                                                background: $gray-500;
+                                            }
+
+                                            .dropdown-toggle::after {
+                                                transform: translateY(-50%) rotate(-90deg);
+                                                margin-right: -2px;
+                                                margin-top: 1px;
+                                            }
+                                        }
+                                    }
+
+                                    & > li .dropdown-item {
+                                        padding: 0px 34px 0px 12px;
+                                        line-height: 50px;
+                                    }
+
+                                    .dropdown-menu {
+                                        top: 0;
+                                        left: 100%;
+                                        background: $gray-500;
+                                        min-width: initial;
+
+                                        & > li .dropdown-item {
+                                            padding: 0px 12px;
+                                        }
+                                    }
+                                }
+
+                                &.left-align {
+                                    .dropdown-menu {
+                                        left: initial;
+                                        right: 0;
+
+                                        .dropdown-submenu {
+                                            .dropdown-menu {
+                                                left: initial;
+                                                right: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            /*Navigation ends here---------------------------->>>>>*/
+            /*jumpostron starts here---------------------------->>>>>*/
+            .jumbotron.dashboard-banner {
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            /*jumpostron ends here---------------------------->>>>>*/
+        }
+
+        @include media-breakpoint-down(lg) {
+            /*footer starts here---------------------------->>>>>*/
+            .footer {
+                .dropdown.language {
+                    display: inline-block !important;
+                }
+            }
+            /*Footer ends here---------------------------->>>>>*/
+        }
+
+        @include media-breakpoint-down(xs) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            /*Header starts here---------------------------->>>>>*/
+            header {
+                .user-login-details {
+                    position: initial;
+
+                    .dropdown-menu {
+                        transform: none !important;
+                        top: 40px !important;
+                        margin: 0;
+                        right: 0;
+                        box-shadow: none;
+
+                        .dropdown-item {
+                            padding: 0px 20px;
+                        }
+                    }
+                }
+            }
+            /*Header ends here---------------------------->>>>>*/
+        }
+    }
+}

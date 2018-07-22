@@ -1,0 +1,324 @@
+﻿.search-content-wrapper {
+    margin-bottom: -20px;
+
+    .adjustment-rule-wrapper.search {
+        .card-title {
+            font-size: $h4-font-sm-size;
+            margin-bottom: 6px;
+        }
+
+        span {
+            font-size: $footer-font-sm-size;
+            width: 100%;
+            margin-bottom: 10px;
+            display: block;
+            color: $gray-500;
+        }
+
+        h6 {
+            font-size: $font-size-base;
+            margin-bottom: -2px;
+            color: $gray-600;
+        }
+
+        .product, .date, h6.version {
+            font-size: $caption-font-sm-size;
+            color: $gray-500;
+        }
+
+        .date {
+            margin-top: 10px;
+            margin-bottom: 16px;
+        }
+
+        .adjustment-rule {
+            padding: 9px 0px 2px;
+
+            &.nopadding{
+                padding: 0px;
+            }
+
+            .version-title-cont {
+                padding: 0px 15px;
+            }
+
+            .view-all-btn {
+                font-size: $footer-font-sm-size;
+            }
+
+            table {
+
+
+                .rule-details {
+                    h5 {
+                        font-size: $footer-font-sm-size;
+                        padding: 5px 0;
+                        color: $gray-600;
+                    }
+
+                    a {
+                        h5 {
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal.view-all-search {
+    .modal-dialog {
+        .modal-content {
+            padding: 0;
+            border-radius: 0;
+            border: none;
+
+            .modal-body {
+                padding: 0;
+
+                .component-tile {
+                    background: none;
+                    border: none;
+                    margin-bottom: 0;
+
+                    .card-title {
+                        font-size: $h4-font-sm-size;
+                        margin-top: -3px;
+                        padding-right: 18px;
+                        margin-bottom: 2px;
+                    }
+
+                    &.adjustment-rule-wrapper.search {
+                        span {
+                            font-size: $footer-font-sm-size;
+                            color: $gray-500;
+                            margin-bottom: 15px;
+                            display: block;
+                        }
+
+                        h6 {
+                            font-size: $font-size-base;
+                            &.version {
+                                font-size: $caption-font-sm-size;
+                            }
+                        }
+
+                        .adjustment-rule {
+                            padding: 13px 0 3px;
+                            margin-top: 16px;
+                            .rule-details {
+                                h5 {
+                                    color: $gray-600;
+                                }
+
+                                a {
+                                    h5 {
+                                        color: $blue;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .btn.ms-close {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 10px;
+        right: 13px;
+        transform: none;
+        padding: 0;
+        background: none;
+
+        &:before {
+            height: 20px;
+            line-height: 20px;
+            font-size: 16px;
+            float: left;
+            width: 20px;
+            color: $gray-500;
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(md) {
+            .search-content-wrapper .adjustment-rule-wrapper.search .card-title {
+                margin-top: -9px;
+            }
+
+            .adjustment-rule-wrapper.search .adjustment-rule table tbody tr:last-child td {
+                padding-bottom: 9px;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            .search-main-wrapper {
+                border: none;
+
+                .selected-filter-container {
+                    margin-bottom: 13px;
+
+                    .btn-badge {
+                        margin-bottom: 10px;
+                        border: 1px solid $gray-400;
+                        background: none;
+                        font-size: $caption-font-lg-size;
+                        color: $gray-600;
+                        line-height: 28px;
+                        height: 30px;
+                        padding: 0px 10px;
+
+                        &:before {
+                            font-size: $footer-font-lg-size;
+                        }
+
+                        span {
+                            margin-right: 20px;
+                        }
+
+                        &:not(:last-child) {
+                            margin-right: 16px;
+                        }
+                    }
+                }
+
+
+                .search-content-wrapper {
+                    margin: 11px 0px -30px;
+
+                    .adjustment-rule-wrapper.search {
+                        .adjustment-rule {
+                            .version-title-cont {
+                                padding: 0px 20px;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+            .modal.view-all-search {
+                .modal-dialog {
+                    .modal-content {
+
+                        .modal-body {
+
+                            .component-tile {
+
+                                .card-title {
+                                    font-size: $h4-font-lg-size;
+                                    margin-top: 0px;
+                                    margin-bottom: 4px;
+                                }
+
+                                &.adjustment-rule-wrapper.search {
+                                    span {
+                                        font-size: $font-size-base;
+                                        margin-bottom: 17px;
+                                        width: 100%;
+                                        display: inline-block;
+                                    }
+
+                                    h6, .product, .date {
+                                        font-size: $h5-font-lg-size;
+                                        margin: 0;
+                                        padding: 0;
+                                        width: 33.333%;
+                                    }
+
+                                    .date {
+                                        text-align: right;
+                                    }
+
+                                    .adjustment-rule {
+                                        padding: 3px 0 3px;
+                                        margin: 0px 0px 7px;
+                                        border: none;
+
+                                        table {
+                                            tr {
+                                                td:first-child {
+                                                    padding-left: 0;
+                                                }
+
+                                                td:last-child {
+                                                    padding-right: 0;
+                                                }
+                                            }
+
+                                            thead {
+                                                border-bottom: 1px solid $gray-400;
+
+                                                tr {
+                                                    td {
+                                                        padding-bottom: 17px;
+
+                                                        .version {
+                                                            font-family: $font-family-semibold;
+                                                            font-size: $h5-font-lg-size;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            tbody {
+                                                tr {
+                                                    td {
+                                                        width: 33.333%;
+                                                    }
+
+                                                    &:first-child {
+                                                        td {
+                                                            padding-top: 7px;
+                                                        }
+                                                    }
+                                                }
+
+                                                tr:last-child {
+                                                    td {
+                                                        padding-bottom: 8px;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .rule-details {
+                                            border-bottom: 1px solid $gray-400;
+
+                                            h5 {
+                                                font-size: $font-size-base;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .btn.ms-close {
+                                &:before {
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include media-breakpoint-down(xs) {
+            .search-content-wrapper .adjustment-rule-wrapper.search .adjustment-rule table .rule-details h5 {
+                font-size: $adjustment-sm-size;
+            }
+        }
+    }
+}

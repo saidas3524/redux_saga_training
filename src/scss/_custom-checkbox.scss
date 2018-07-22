@@ -1,0 +1,170 @@
+﻿.switch-button-wrapper {
+    padding: 0;
+
+    label {
+        line-height: 100%;
+        margin-bottom: 0;
+
+        &:before, &:after {
+            display: none;
+        }
+
+        .checkbox-title {
+            display: block;
+            pointer-events: none;
+        }
+
+        .switch-wrapper {
+            height: $input-height;
+            display: inline-block;
+            margin-top: 7px;
+            cursor: pointer;
+            background: $white;
+
+            .left-btn, .right-btn {
+                border: 1px solid $gray-400;
+                font-size: $caption-font-sm-size;
+                @include button-size($custom-checkbox-padding, $custom-checkbox-padding-sm-x, $font-size-base, $btn-line-height, $btn-border-radius);
+                line-height: $input-height;
+                height: $input-height;
+                float: left;
+                position: relative;
+                color: $gray-600;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 4px;
+                    top: -1px;
+                    bottom: -1px;
+                    left: -1px;
+                    background: $blue;
+                }
+            }
+
+            .right-btn {
+                color: $blue;
+            }
+
+            .left-btn {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .custom-control-input:checked + label {
+        .switch-wrapper {
+            .left-btn {
+                color: $blue;
+
+                &:before {
+                    display: block;
+                }
+            }
+
+            .right-btn {
+                color: $gray-600;
+
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .custom-control-input:disabled + label {
+        .switch-wrapper {
+            cursor: default;
+
+            .left-btn, .right-btn {
+                color: $gray-400;
+
+                &:before {
+                    background: $gray-400;
+                }
+            }
+        }
+    }
+
+    .custom-control-input:focus + label {
+        .switch-wrapper {
+            outline: 1px solid $blue;
+        }
+    }
+}
+
+.custom-checkbox {
+    .custom-control-label {
+        color: $gray-500;
+        padding-left: 30px;
+        font-family: $font-family-semibold;
+        font-size: $font-size-base;
+        cursor: pointer;
+
+        &:before {
+            border: 1px solid $gray-400;
+            background: $white;
+            border-radius: 0;
+            width: 15px;
+            height: 15px;
+        }
+
+        &:after {
+            width: 15px;
+            height: 15px;
+            background: none !important;
+            @include ms-font-iconNew ($ms-accept);
+            font-size: 11px;
+            text-align: center;
+            line-height: 16px;
+            color: $blue;
+            overflow: hidden;
+            display: none;
+        }
+    }
+
+    .custom-control-input:checked ~ .custom-control-label {
+        &:before {
+            border-color: $blue;
+            background: $white;
+        }
+
+        &:after {
+            display: block;
+        }
+    }
+
+    .custom-control-input:focus ~ .custom-control-label {
+        &:before {
+            border: 1px solid $blue;
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(lg) {
+            .switch-button-wrapper {
+                label {
+                    .switch-wrapper {
+                        .left-btn, .right-btn {
+                            @include button-size($custom-checkbox-padding, $custom-checkbox-padding-lg-x, $font-size-base, $input-height, $btn-border-radius);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+input[type="checkbox"][readonly], input[type="checkbox"][readonly] ~ label {
+    pointer-events: none;
+}

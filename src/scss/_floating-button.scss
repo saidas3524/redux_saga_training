@@ -1,0 +1,44 @@
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(lg) {
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                background: $blue;
+                box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+                position: fixed;
+                right: 30px;
+                z-index: 5;
+
+
+                &:before {
+                    width: $h4-font-lg-size;
+                    height: $h4-font-lg-size;
+                    margin: 15px;
+                    color: $white;
+                    font-size: $h4-font-lg-size;
+                    line-height: 26px;
+                }
+
+                &.top {
+                    top: 100px;
+                }
+
+                &.bottom {
+                    bottom: 100px;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            .floating-btn {
+                display: none !important;
+            }
+        }
+    }
+}

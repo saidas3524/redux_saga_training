@@ -1,0 +1,79 @@
+﻿.component-tile.approver-item {
+    background: $gray-300;
+
+    h5 {
+        margin: -3px 0px 4px;
+    }
+
+    .tier-name {
+        margin-bottom: 8px;
+    }
+
+    h6 {
+        color: $gray-600;
+        font-size: $caption-font-sm-size;
+        margin-bottom: 0;
+    }
+
+    .product {
+        font-size: $footer-font-sm-size;
+    }
+
+    .adjustment-rule {
+        .adjustment-rule-title {
+            border-bottom: 1px solid $gray-400;
+
+            h6 {
+                font-size: $small-font-sm-size;
+                margin-bottom: 5px;
+            }
+        }
+
+        .rule-details {
+            margin-top: 5px;
+
+            h5 {
+                font-size: $footer-font-sm-size;
+                margin-bottom: 0;
+                color: $gray-500;
+            }
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(lg) {
+            .component-tile.approver-item {
+                h5 {
+                    margin: -7px 0px 2px;
+                }
+
+                h6 {
+                    font-size: $font-size-base;
+                }
+            }
+
+            .adjustment-rule-wrapper {
+                padding: 12px 20px 17px;
+
+                h5 {
+                    margin-bottom: 8px;
+                }
+
+                h6 {
+                    font-size: $h6-font-lg-size;
+                }
+
+                .product {
+                    font-size: $caption-font-lg-size;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+}

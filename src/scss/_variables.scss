@@ -1,0 +1,214 @@
+﻿$white: #fff;
+$gray-100: #F2F2F2;
+$gray-200: #F4F4F4;
+$gray-300: #EEEEEE;
+$gray-400: #D2D2D2;
+$gray-500: #626262;
+$gray-600: #505050;
+$gray-700: #464646;
+$gray-800: #2F2F2F;
+$black: #000;
+$blue: #0073d2;
+$red: #db2725;
+$alert-red: #c00000;
+$darkblue: #005DA6;
+$warning: #F5CA8C;
+$green: #155724;
+$alert-primary-bg: #E6F4FF;
+$alert-warning-bg: #ECC387;
+$alert-danger-bg: #F2DEDE;
+$alert-success-bg: #d4edda;
+
+
+$success: $gray-400;
+
+$tile-hover: #E3E3E3;
+
+$transparent: transparent;
+$secondary: transparent;
+$light: $white;
+
+// Body
+//
+// Settings for the `<body>` element.
+$body-color: $gray-800;
+$border-width: 1px;
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1342px, xxl:1650px);
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+$container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1230px, xxl:1590px );
+
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif: "wf_segoe-ui_normal",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-light: "wf_segoe-ui_light",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-semilight: "wf_segoe-ui_semilight",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-semibold: "wf_segoe-ui_semibold",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-bold: "wf_segoe-ui_bold",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+// stylelint-enable value-keyword-case
+$font-size-base: 1rem;
+$button-line-height: 2.75;
+$line-height-minus: 0.1875rem;
+$h1-font-size: $font-size-base * 1.5;
+
+// Mobile font-face sizes
+$h1-font-sm-size: 1.5rem;
+$h2-font-sm-size: 1.125rem;
+$h3-font-sm-size: 1.125rem;
+$h4-font-sm-size: 1.125rem;
+$h5-font-sm-size: $font-size-base;
+$h6-font-sm-size: $font-size-base;
+$button-font-sm-size: 0.9375rem;
+$caption-font-sm-size: 0.875rem;
+$footer-font-sm-size: 0.75rem; //12px
+$adjustment-sm-size: 0.6875rem; //11px
+$small-font-sm-size: 0.625rem; //10px
+
+// Desktop font-face sizes
+$h1-font-lg-size: 2.125rem;
+$h2-font-lg-size: 1.75rem;
+$h3-font-lg-size: 1.5rem;
+$h4-font-lg-size: 1.25rem;
+$h5-font-lg-size: 1.125rem;
+$h6-font-lg-size: $font-size-base;
+$button-font-lg-size: 0.9375rem;
+$caption-font-lg-size: 0.875rem;
+$footer-font-lg-size: 0.75rem;
+$small-font-lg-size: 0.625rem;
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+
+$input-btn-padding-y: 0;
+$input-btn-padding-x: 1.25rem;
+$input-btn-line-height: $button-line-height;
+
+$input-btn-focus-width: 0.0625rem;
+$input-btn-padding-y-sm: 0;
+$input-btn-padding-x-sm: 1.25rem;
+
+$input-btn-padding-y-lg: 0;
+$input-btn-padding-x-lg: 1.25rem;
+$input-placeholder-color:$gray-400;
+
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background, and border color.
+$btn-box-shadow: none;
+
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius: 0;
+$btn-border-radius-lg: 0;
+$btn-border-radius-sm: 0;
+
+
+
+// Forms
+$label-font-size: 0.875rem;
+$label-margin-bottom: 0.3125rem;
+
+$input-color: $gray-600;
+
+$input-border-radius: 0;
+$input-border-radius-lg: 0;
+$input-border-radius-sm: 0;
+
+$input-focus-color: none;
+$input-height: 2.5rem;
+$input-focus-box-shadow: none;
+
+$form-group-margin-bottom: 0.625rem;
+
+$custom-checkbox-padding: 0;
+$custom-checkbox-padding-sm-x: 0.625rem;
+$custom-checkbox-padding-lg-x: 0.9375rem;
+
+$custom-control-gutter: 0;
+
+// Navbar
+$navbar-padding-y: 0;
+$navbar-padding-x: 15px;
+
+
+// Jumbotron
+$jumbotron-padding: 0;
+$jumbotron-bg: $gray-800;
+
+// Card
+$card-spacer-y: 0.9375rem;
+$card-spacer-x: 0.9375rem;
+$card-border-width: 0;
+$card-border-radius: 0;
+$card-bg: $gray-300;
+
+// Pagination
+$pagination-height-sm: 1.25rem;
+$pagination-height-lg: 1.563rem;
+// Pagination
+
+$pagination-padding-y: 0;
+$pagination-padding-x: 0.3125rem;
+$pagination-padding-y-sm: 0;
+$pagination-padding-x-sm: 0.3125rem;
+$pagination-padding-y-lg: 0;
+$pagination-padding-x-lg: 0.3125rem;
+$pagination-line-height: 1.25rem;
+$pagination-color: $blue;
+$pagination-border-color: $white;
+$pagination-hover-color: $blue;
+$pagination-hover-bg: $white;
+$pagination-hover-border-color: $white;
+$pagination-active-color: $blue;
+$pagination-active-bg: $white;
+$pagination-active-border-color: $gray-400;
+
+
+//Accordian
+$accordian-height-sm: 2.813rem;
+$accordian-height-lg: 3.75rem;
+$filter-accordian-height-sm: 2.5rem;
+
+// Alerts
+//
+// Define alert colors, border radius, and padding.
+$alert-padding-y: .75rem !default;
+$alert-padding-x: 1.25rem !default;
+$alert-margin-bottom: 1rem !default;
+$alert-border-radius: 0;
+/*$alert-link-font-weight: $font-weight-bold !default;*/
+$alert-border-width: none;
+
+$alert-bg-level: 0;
+$alert-border-level: 0;
+$alert-color-level: 0;
+
+//custom variables and classes
+.easing {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+@mixin rotate ($rotate) {
+    -moz-transform: rotate($rotate);
+    -webkit-transform: rotate($rotate);
+    -o-transform: rotate($rotate);
+    -ms-transform: rotate($rotate);
+    transform: rotate($rotate);
+}

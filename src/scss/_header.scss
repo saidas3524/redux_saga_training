@@ -1,0 +1,235 @@
+﻿
+/*Header starts here---------------------------->>>>>*/
+.header-wrapper {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+}
+
+
+.navbar-brand {
+    color: $dark;
+
+    @include hover-focus {
+        color: $dark;
+    }
+}
+
+.navbar-brand {
+    &.microsoft {
+        height: 34px;
+        width: 34px;
+        overflow: hidden;
+        padding: 0;
+        margin: 0px 0px 0px -5px;
+        border: 5px solid $white;
+        float: left;
+
+        img {
+            height: 24px;
+            width: auto;
+            float: left;
+        }
+    }
+
+    &.oem-doc {
+        &:link, &:active, &:hover, &:visited {
+            font-size: $caption-font-sm-size;
+        }
+    }
+}
+
+.user-login-details {
+    .dropdown-toggle {
+        padding: 0;
+        background: none;
+        padding: 4px 21px 4px 4px;
+        margin-right: -4px;
+        position: relative;
+
+        &:before {
+            margin-left: 0;
+            font-size: 10px;
+            margin-top: 1px;
+            position: absolute;
+            top: 50%;
+            right: 3px;
+            transform: translate(0px, -50%);
+            color: $gray-500;
+            @extend .easing;
+        }
+
+        &:after {
+            display: none;
+        }
+
+        .user-name-area {
+            float: left;
+            display: none;
+            padding-right: 5px;
+            font-size: $caption-font-lg-size;
+            color: $gray-500;
+            margin: 0;
+
+            span {
+                padding-left: 4px;
+            }
+        }
+
+        .user-avtar {
+            float: left;
+            width: 15px;
+            height: 15px;
+            margin: 1px 0px 0px 0px;
+            overflow: hidden;
+            position: relative;
+            background: url('../images/user-image.png') no-repeat;
+            background-size: cover;
+
+            img {
+                width: 100%;
+                height: 100%;
+                float: left;
+                position: relative;
+                background: #fff;
+            }
+        }
+    }
+
+    .dropdown-menu {
+        border-radius: 0;
+        margin-right: 14px;
+        border: 1px solid $gray-400;
+        box-shadow: 1px 1px 0px #B7B1B1;
+        padding: 0;
+
+        .dropdown-item {
+            line-height: 45px;
+            padding: 0px 15px;
+            margin: 0;
+            color: $gray-600;
+
+            &:focus, &:active {
+                background: $gray-100;
+            }
+        }
+
+        .dropdown-item:not(:last-child) {
+            border-bottom: 1px solid $gray-400;
+        }
+
+        .profile-icon, .logout-icon {
+            @extend .ms-font-icon;
+            width: 16px;
+            height: 16px;
+            font-size: 16px;
+            color: $gray-800;
+            float: left;
+            line-height: 100%;
+            padding-top: 14px;
+            margin-right: 7px;
+        }
+
+        .logout-icon {
+            padding-top: 15px;
+        }
+    }
+
+    &.show {
+        .dropdown-toggle {
+            &:before {
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+    }
+}
+/*Header ends here---------------------------->>>>>*/
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(lg) {
+            /*Header starts here---------------------------->>>>>*/
+            header {
+                .header-wrapper {
+                    height: 50px;
+
+                    .navbar-brand {
+                        &.microsoft {
+                            height: 30px;
+                            width: initial;
+
+                            img {
+                                height: 20px;
+                                width: auto;
+                                float: left;
+                            }
+                        }
+
+                        &.oem-doc {
+                            &:link, &:active, &:hover, &:visited {
+                                font-size: $h4-font-lg-size;
+                                margin-left: 55px !important;
+                            }
+                        }
+                    }
+
+                    .user-login-details {
+                        .dropdown-toggle {
+                            padding-right: 21px;
+
+                            &:before {
+                                font-size: 10px;
+                                margin-top: 0;
+                            }
+
+                            .user-name-area {
+                                line-height: 30px;
+                                padding-right: 8px;
+                            }
+
+                            .user-avtar {
+                                width: 20px;
+                                height: 20px;
+                                margin: 2px 0 0;
+                            }
+                        }
+
+                        .dropdown-menu {
+                            min-width: 130px;
+                        }
+                    }
+                }
+            }
+            /*Header ends here---------------------------->>>>>*/
+        }
+
+        @include media-breakpoint-down(xs) {
+            /*Header starts here---------------------------->>>>>*/
+            header {
+                .user-login-details {
+                    position: initial;
+
+                    .dropdown-menu {
+                        transform: none !important;
+                        top: 40px !important;
+                        margin: 0;
+                        right: 0;
+                        box-shadow: none;
+
+                        .dropdown-item {
+                            padding: 0px 20px;
+                        }
+                    }
+                }
+            }
+            /*Header ends here---------------------------->>>>>*/
+        }
+    }
+}

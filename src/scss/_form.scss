@@ -1,0 +1,186 @@
+﻿.form-group {
+    position: relative;
+
+    label {
+        color: $gray-500;
+
+        .required {
+            color: $red;
+            margin-left: 5px;
+        }
+    }
+
+    h5 {
+        font-size: $font-size-base;
+        margin-bottom: 7px;
+        margin-top: -2px;
+        color: $gray-600;
+    }
+
+    .invalid-feedback {
+        position: relative;
+        margin: 0;
+
+        P {
+            margin: 4px 0px 0;
+            font-size: $font-size-base;
+        }
+
+        .validation-error-btn {
+            position: absolute;
+            top: -30px;
+            right: 10px;
+            width: 18px;
+            height: 18px;
+            padding: 0;
+            border: none;
+            text-align: center;
+            line-height: 18px;
+            background: none;
+            color: $red;
+
+            &:before {
+                width: 18px;
+                height: 18px;
+                line-height: 18px;
+                font-size: 18px;
+            }
+        }
+
+        .invalid-errors {
+            width: 100%;
+            background: $white;
+            position: absolute;
+            box-shadow: 0 1px 3px rgba(0,0,0,.3);
+            z-index: 3;
+            @extend .easing;
+            display: block;
+            overflow: hidden;
+            height: 0;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: -7px;
+                right: 14px;
+                width: 12px;
+                height: 12px;
+                box-shadow: 0 1px 3px rgba(0,0,0,.3);
+                background: $white;
+                transform: rotate(45deg);
+                z-index: -1;
+            }
+
+            p {
+                padding: 12px 15px;
+                margin: 0;
+                font-family: $font-family-semibold;
+                font-size: $caption-font-sm-size;
+                background: $white;
+                color: $red;
+            }
+        }
+    }
+
+    .form-control:hover ~ .invalid-feedback, .form-control:focus ~ .invalid-feedback {
+        .invalid-errors {
+            height: auto;
+        }
+    }
+
+    .validation-error-btn:hover ~ .invalid-errors {
+        height: auto;
+    }
+
+    &.calendar {
+        .form-control {
+            background: none;
+            padding-right: 35px;
+            cursor: pointer;
+        }
+
+        .calendar-icon {
+            font-size: $caption-font-sm-size;
+            position: absolute;
+            top: 38px;
+            right: 25px;
+            color: $gray-500;
+        }
+    }
+
+    .form-control.auto-complete {
+        cursor: pointer;
+    }
+}
+
+textarea.form-control {
+    font-size: $caption-font-sm-size;
+    line-height: 1.3em;
+    padding: 15px;
+    min-height: 150px;
+}
+
+.sort-dropdown {
+    display: flex;
+
+    label {
+        white-space: nowrap;
+        margin: 5px 10px 0px 0px;
+        line-height: 30px;
+    }
+
+    .form-control {
+        border-color: $blue;
+        color: $blue;
+        height: 30px !important;
+        padding: 0px 5px;
+        margin: 5px 0 0;
+
+        option {
+            color: $gray-600;
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(md) {
+            .form-group {
+                &.calendar {
+                    .form-control {
+                        padding-right: 40px;
+                        &:disabled{
+                            background-color: #f4f4f4 !important;
+                            opacity: 1 !important;
+                        }
+                    }
+
+                    .calendar-icon {
+                        right: 30px;
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            .form-group {
+                h5 {
+                    margin-top: -2px;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            .form-group {
+
+                &.date-wrapper {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "languages": [
+        {
+            "Code": "en-Us",
+            "Language": "English(US)"
+        }
+    ],
+    "default": "en-Us"
+}

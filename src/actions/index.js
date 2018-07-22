@@ -1,1 +1,0 @@
-export { setUser,SET_USER } from "./setUserInfo";

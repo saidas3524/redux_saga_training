@@ -1,0 +1,125 @@
+﻿.accordion {
+    .card {
+        background: $white;
+
+        .card-header {
+            background: none;
+            padding: 0;
+
+            h4 {
+                padding: 0px;
+                border-top: 1px solid $gray-400;
+
+                .btn {
+                    font-size: inherit;
+                    color: $gray-600;
+                    padding: 0;
+                    width: 100%;
+                    text-align: left;
+                    line-height: $accordian-height-sm;
+                    height: $accordian-height-sm;
+                    text-decoration: none;
+                    position: relative;
+
+                    span {
+                        width: 100%;
+                        height: 100%;
+                        padding: 0 30px 0 0px;
+                        display: block;
+                        background:none;
+                        @extend .easing;
+                    }
+
+                    &:focus > span {
+                        color: $blue;
+                        background: rgba(0, 115,210, 0.1);
+                    }
+
+                    &:before {
+                        position: absolute;
+                        top: 50%;
+                        transform: translate(0, -50%);
+                        right: 0px;
+                        font-size: $caption-font-sm-size;
+                        color: $gray-400;
+                        @extend .easing;
+                    }
+
+                    &[aria-expanded="true"] {
+                        font-family: $font-family-semibold;
+
+                        &:before {
+                            transform: translate(0, -50%) rotate(180deg);
+                        }
+                    }
+                }
+                /*.btn:focus > span {
+                    color: $blue;
+                }
+
+                .btn:focus, .btn > span:focus {
+                    color: $gray-600;
+                }*/
+            }
+        }
+
+        .card-body {
+            padding: 0;
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(lg) {
+            .accordion {
+                .card {
+                    .card-header {
+                        h4 {
+                            .btn {
+                                line-height: $accordian-height-lg;
+                                height: $accordian-height-lg;
+
+                                &:before {
+                                    font-size: $h4-font-sm-size;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(xs) {
+            .accordion {
+                margin-left: -20px;
+                margin-right: -20px;
+
+                .card {
+
+                    .card-header {
+
+                        h4 {
+
+                            .btn {
+                                padding: 0 50px 0 20px;
+
+                                &:before {
+                                    right: 20px;
+                                }
+                            }
+                        }
+                    }
+
+                    .card-body {
+                        padding: 0px 20px;
+                    }
+                }
+            }
+        }
+    }
+}

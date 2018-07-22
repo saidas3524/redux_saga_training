@@ -1,0 +1,113 @@
+﻿.list-content-wrapper {
+    li {
+        background: $gray-300;
+        padding: 10px 15px 4px;
+        position: relative;
+
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+
+        .tier-name {
+            margin-bottom: 3px;
+            font-family: $font-family-semibold;
+            color: $darkblue;
+        }
+
+        .ms-close {
+            position: absolute;
+            top: 10px;
+            right: 7px;
+            font-size: 12px;
+            padding: 0;
+            height: 30px;
+            line-height: 30px;
+            width: 30px;
+            background: none;
+
+            &:before {
+                color: $gray-500;
+            }
+
+            &:hover, &:focus {
+                &:before {
+                    font-weight: 600;
+                    font-size: $caption-font-sm-size;
+                }
+            }
+        }
+
+        &:hover {
+            background: $tile-hover;
+
+            .ms-close {
+                &:before {
+                    color: $gray-800;
+                }
+            }
+        }
+    }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+
+        @include media-breakpoint-up(md) {
+            .list-content-wrapper {
+                li {
+                    padding: 15px 30px 15px 15px;
+
+                    .form-group {
+                        label {
+                            margin: 0px 15px 0px;
+                        }
+
+                        input {
+                            min-width: 130px;
+                        }
+                    }
+
+                    .ms-close {
+                        top: 50%;
+                        transform: translate(0px, -50%);
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            .list-content-wrapper {
+                li {
+                    .form-group {
+                        input {
+                            min-width: 230px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            .list-content-wrapper {
+                li {
+                    width: 100%;
+                    display: inline-block;
+
+                    .form-group {
+                        width: calc(50% - 7px);
+                        display: inline-flex;
+                        flex-direction: column;
+                        float: left;
+                    }
+
+                    .form-group + .form-group {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+}

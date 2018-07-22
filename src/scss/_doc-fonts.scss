@@ -1,0 +1,209 @@
+﻿@charset "UTF-8";
+
+@font-face {
+    font-family: 'wf_segoe-ui_light';
+    src: url("../fonts/segoe-ui-light.eot");
+    src: local("Segoe UI Light"),local("Segoe WP Light"),url("../fonts/segoe-ui-light.eot?#iefix") format("embedded-opentype"),url("../fonts/segoe-ui-light.woff") format("woff"),url("../fonts/segoe-ui-light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+    font-family: 'wf_segoe-ui_normal';
+    src: url("../fonts/segoe-ui-normal.eot");
+    src: local("Segoe UI"),local("Segoe"),local("Segoe WP"),url("../fonts/segoe-ui-normal.eot?#iefix") format("embedded-opentype"),url("../fonts/segoe-ui-normal.woff") format("woff"),url("../fonts/segoe-ui-normal.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'wf_segoe-ui_semibold';
+    src: url('../fonts/segoe-ui-semibold.eot');
+    src: local("Segoe UI Semibold"),local("Segoe Semibold"),local("Segoe WP Semibold"),url('../fonts/segoe-ui-semibold.eot?#iefix') format("embedded-opentype"),url('../fonts/segoe-ui-semibold.woff') format("woff"),url('../fonts/segoe-ui-semibold.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'wf_segoe-ui_semilight';
+    src: url("../fonts/segoe-ui-semilight.eot");
+    src: url("../fonts/segoe-ui-semilight.eot?#iefix") format("embedded-opentype"),url("../fonts/segoe-ui-semilight.woff") format("woff"),url("../fonts/segoe-ui-semilight.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'wf_segoe-ui_bold';
+    src: url("../fonts/segoe-ui-bold.eot");
+    src: url("../fonts/segoe-ui-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/segoe-ui-bold.woff") format("woff"),url("../fonts/segoe-ui-bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*Microsoft icons starts here*/
+@font-face {
+    font-family: 'MWF-MDL2';
+    src: url("../fonts/MWFMDL2.eot");
+    src: url("../fonts/MWFMDL2.eot?#iefix") format("embedded-opentype"), url("../fonts/MWFMDL2.woff2") format("woff2"), url("../fonts/MWFMDL2.woff") format("woff"), url("../fonts/MWFMDL2.ttf") format("truetype"), url("../fonts/MWFMDL2.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ms-glyph:before, .ms-glyph:after {
+    font-family: "MWF-MDL2";
+    display: inline-block;
+    text-decoration: none;
+}
+
+@mixin ms-font-icon {
+    font-family: "MWF-MDL2";
+    display: inline-block;
+    text-decoration: none;
+}
+
+.ms-font-icon {
+    font-family: "MWF-MDL2";
+    display: inline-block;
+    text-decoration: none;
+}
+
+$ms-close: "\E894";
+$ms-chevron-down: "\E70D";
+$ms-chevron-left: "\E76B";
+$ms-chevron-right: "\E76C";
+$ms-chevron-up: "\E70E";
+$ms-logout: "\E72D";
+$ms-global-nav: "\E700";
+$ms-globe: "\E909";
+$ms-accept: "\E8FB";
+$ms-contact: "\E77B";
+$ms-add: "\E710";
+$ms-sort: "\E8CB";
+$ms-upload: "\E74A";
+$ms-save: "\E7C3";
+$ms-calendar: "\E787";
+$ms-delete: "\E74D";
+$ms-edit: "\E70F";
+$ms-expand: "\E740";
+$ms-view-price: "\E8FD";
+$ms-return: "\E72B";
+$ms-warning: "\E814";
+$ms-filter: "\E71C";
+$ms-search: "\E71E";
+$ms-export: "\E8AD";
+
+@mixin ms-font-iconNew ($iconName) {
+    font-family: "MWF-MDL2";
+    display: inline-block;
+    text-decoration: none;
+    content: $iconName;
+}
+
+.ms-glyph:before, .ms-glyph:after, .ms-glyph:hover:before, .ms-glyph:hover:after {
+    text-decoration: none;
+}
+
+.ms-glyph.ms-chevron-down:before {
+    content: $ms-chevron-down;
+}
+
+.ms-glyph.ms-chevron-left:before {
+    content: $ms-chevron-left;
+}
+
+.ms-glyph.ms-chevron-right:before {
+    content: $ms-chevron-right;
+}
+
+.ms-glyph.ms-chevron-up:before {
+    content: $ms-chevron-up;
+}
+
+.ms-glyph.ms-logout:before {
+    content: $ms-logout;
+}
+
+.ms-glyph.ms-global-nav:before {
+    content: $ms-global-nav;
+}
+
+.ms-glyph.ms-accept:before {
+    content: $ms-accept;
+}
+
+.ms-glyph.ms-contact:before {
+    content: $ms-contact;
+}
+
+.ms-glyph.ms-globe:before {
+    content: $ms-globe;
+}
+
+.ms-glyph.ms-close:before, .ms-glyph.ms-cancel:before {
+    content: $ms-close;
+}
+
+.ms-glyph.ms-add:before {
+    content: $ms-add;
+}
+
+.ms-glyph.ms-sort:before {
+    content: $ms-sort;
+}
+
+.ms-glyph.ms-upload:before {
+    content: $ms-upload;
+}
+
+.ms-glyph.ms-save:before {
+    content: $ms-save;
+}
+
+.ms-glyph.ms-calendar:before {
+    content: $ms-calendar;
+}
+
+.ms-glyph.ms-delete:before {
+    content: $ms-delete;
+}
+
+.ms-glyph.ms-edit:before {
+    content: $ms-edit;
+}
+
+.ms-glyph.ms-expand:before {
+    content: $ms-expand;
+}
+
+.ms-glyph.ms-view-price:before {
+    content: $ms-view-price;
+}
+
+.ms-glyph.ms-return:before {
+    content: $ms-return;
+}
+
+.ms-glyph.ms-warning:before {
+    content: $ms-warning;
+}
+
+.ms-glyph.ms-filter:before {
+    content: $ms-filter;
+}
+
+.ms-glyph.ms-export:before {
+    content: $ms-export;
+}
+
+.ms-glyph.ms-search:before {
+    content: $ms-search;
+}
+
+.ms-glyph.flipped:before {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+/*Microsoft icons ends here*/
