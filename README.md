@@ -1,5 +1,5 @@
-# react-redux-webpack-starter
-this is a simple redux react webapck starter
-it has the code pattern for the following
---> React basic set up 
---> redux -- actions--> reducers--> sagas
+4 steps to run the solution
+1) copy webpack.dev.config to wepack.config
+2) npm install
+3) npm run build-dev
+4) npm run start
