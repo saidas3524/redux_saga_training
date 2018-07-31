@@ -15,7 +15,6 @@ import { defaultState } from './defaultState';
 import { insightsMonitor } from "./AppInsights";
 import { app_initialize } from './Root';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { PricingMiddlewares } from "./Pricing";
 
 
 
@@ -30,7 +29,7 @@ export const getStore = () => {
     };
 
 
-    const middleWares = [insightsMonitor(params), app_initialize,...PricingMiddlewares, sagaMiddleware];
+    const middleWares = [insightsMonitor(params), app_initialize, sagaMiddleware];
     //if (getQuery['logger']) { middleWares.push(logger)}
     const composables = [applyMiddleware(...middleWares)
     ];

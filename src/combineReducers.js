@@ -2,10 +2,9 @@ import { fromJS } from 'immutable'
 import { reducer as formReducer } from 'redux-form'
 import { combineReducers } from 'redux'
 import { RootReducers } from './Root';
-import { PricingReducers} from './Pricing';
 import { CoreReducers } from '@ec-oem/ec.oem.oa3.mux.core'
 
-const reducers = {...RootReducers,...CoreReducers,...PricingReducers};
+const reducers = {...RootReducers,...CoreReducers};
 
 export const combineAppReducers = (config) => {
 
